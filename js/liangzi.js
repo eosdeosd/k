@@ -9,53 +9,14 @@ var rule = {
     filterable: 1,
     tab_remove:['liangzi'],
     play_parse: false,
-    lazy:`js:
-        try {
-            function getvideo(url) {
-                let jData = JSON.parse(request(url, {
-                    headers: getHeaders(url)
-                }));
-                if (jData.code == 1) {
-                    return jData.data.url
-                } else {
-                    return 'https://remove-ads.icu/ad.php?url=' + url.split('=')[1]
-                }
-            }
-            if (/,/.test(input)) {
-                let mjurl = input.split(',')[1]
-                let videoUrl = getvideo(mjurl);
-                input = {
-                    jx: 0,
-                    url: videoUrl,
-                    parse: 0,
-                    header: JSON.stringify({
-                        'user-agent': 'Lavf/58.12.100'
-                    })
-                }
-            } else {
-                let videoUrl = getvideo(input);
-                if (/.test(videoUrl)) {
-                    videoUrl = getvideo(videoUrl);
-                    input = {
-                        jx: 0,
-                        url: videoUrl,
-                        parse: 0,
-                        header: JSON.stringify({
-                            'user-agent': 'Lavf/58.12.100'
-                        })
-                    }
-                } else {
-                    input = {
-                        jx: 0,
-                        url: videoUrl,
-                        parse: 0
-                    }
-                }
-            }
-        } catch (e) {
-            log(e.toString())
-        }
-	`,
+    lazy: `js:
+var kcode = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
+var kurl = kcode.url;
+if (/m3u8/.test(kurl)) {
+input = kurl
+} else {
+input= 'https://remove-ads.icu/ad.php?url='+kurl
+}`,
     multi: 1,
     timeout: 5000,
     limit: 6,
