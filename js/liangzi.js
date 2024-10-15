@@ -10,13 +10,22 @@ var rule = {
     tab_remove:['liangzi'],
     play_parse: false,
     lazy: `js:
-var kcode = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
-var kurl = kcode.url;
-if (/m3u8/.test(kurl)) {
-input = kurl
-} else {
-input= 'https://remove-ads.icu/ad.php?url='+kurl
-}`,
+if(cacheUrl){
+    input=cacheUrl;
+}else{
+    try {
+        let html = fetch(input, fetch_params);
+        let ret = html.match(/var player_(.*?)=(.*?)</)[2];
+        let url = JSON.parse(ret).url;
+        if(url.length > 10){
+            real_url = 'https://jx.yparse.com/index.php?url='+url;
+            saveParse(input,real_url);
+            input =  real_url;
+        }
+    }catch (e) {
+        print('网络请求发生错误:'+e.message);
+    }
+} `,
     multi: 1,
     timeout: 5000,
     limit: 6,
