@@ -9,23 +9,7 @@ var rule = {
     filterable: 1,
     tab_remove:['liangzi'],
     play_parse: false,
-    lazy: `js:
-if(cacheUrl){
-    input=cacheUrl;
-}else{
-    try {
-        let html = fetch(input, fetch_params);
-        let ret = html.match(/var player_(.*?)=(.*?)</)[2];
-        let url = JSON.parse(ret).url;
-        if(url.length > 10){
-            real_url = 'https://jx.yparse.com/index.php?url='+url;
-            saveParse(input,real_url);
-            input =  real_url;
-        }
-    }catch (e) {
-        print('网络请求发生错误:'+e.message);
-    }
-} `,
+    lazy: ``,
     multi: 1,
     timeout: 5000,
     limit: 6,
