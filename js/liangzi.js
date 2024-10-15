@@ -7,6 +7,7 @@ var rule = {
     searchable: 2,
     quickSearch: 0,
     filterable: 1,
+    tab_remove:['liangzi'],
     play_parse: false,
     lazy: '',
     multi: 1,
