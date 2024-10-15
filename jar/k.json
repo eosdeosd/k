@@ -44,8 +44,8 @@
             "ext": "https://github.com/eosdeosd/k/raw/master/js/百忙无果.js"
         },
         {
-            "key": "360",
-            "name": "360｜视频",
+            "key": "三六零",
+            "name": "三六零｜视频",
             "type": 3,
             "api": "https://github.com/eosdeosd/k/raw/master/lib/drpy2.min.js",
             "ext": "https://github.com/eosdeosd/k/raw/master/js/360.js"
