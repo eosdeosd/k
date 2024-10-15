@@ -41,7 +41,7 @@ var rule = {
 	class_url:'2&1&4&3&46',
 	limit:20,
 	play_parse:true,
-	tab_remove:['NG快播-1','zyk-勿信视频广告','官网YK云','官网IQY云','BF'],
+	tab_remove:['NG快播-1','zyk-勿信视频广告','官网YK云','官网IQY云','官网TX云','BF'],
 	lazy:`js:
         try {
             function getvideo(url) {
