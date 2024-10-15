@@ -9,7 +9,7 @@ var rule = {
     filterable: 1,
     tab_remove:['liangzi'],
     play_parse: false,
-    lazy: ``,
+    lazy:'js:input=input.split("?")[0];log(input);',
     multi: 1,
     timeout: 5000,
     limit: 6,
