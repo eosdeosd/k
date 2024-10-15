@@ -34,7 +34,7 @@ var rule = {
                 }
             } else {
                 let videoUrl = getvideo(input);
-                if (/jhapi/.test(videoUrl)) {
+                if (/.test(videoUrl)) {
                     videoUrl = getvideo(videoUrl);
                     input = {
                         jx: 0,
