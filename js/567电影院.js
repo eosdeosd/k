@@ -24,8 +24,8 @@ var rule = {
 		4:{cateId:'4'}
 	},
 	searchUrl: '/search/**----------fypage---.html',
-	lazy:'js: var flag = [];
-function lazy() {
+	lazy:'js:
+{
     let jxUrl = 'https://jx.xmflv.com/?url=';
     fetch_params.headers.Referer = jxUrl;
     eval(getCryptoJS());
