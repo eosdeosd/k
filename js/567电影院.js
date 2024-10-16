@@ -31,8 +31,6 @@ var rule = {
 	    let from = html.from
 	    if (html.encrypt == '1') {
 		    url = unescape(url);
-	    } else if (html.encrypt == '2') {
-		    url = unescape(base64Decode(url));
 	    }
         log('切片地址:' + url);
         
@@ -58,7 +56,6 @@ var rule = {
                 },
                 redirect: false,
                 withHeaders: true})).location+'#.m3u8';
-            //let playurl=fetch(play,{headers:{'Host': 'download4.caiyun.feixin.10086.cn'}})
             log(play)
             input=play
 
