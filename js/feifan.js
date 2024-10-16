@@ -9,8 +9,32 @@ var rule = {
     filterable: 1,
     tab_remove:['feifan'],
     play_parse: false ,
-    parse: 'https://jx.lasi.fun/blue/index.php?url=',
- // lazy:'js:input={parse:'https://jx.lasi.fun/blue/index.php?url=',jx:1,url:input};',
+    //parse: 'https://jx.lasi.fun/blue/index.php?url=',
+    lazy:`js:
+        var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
+        var url = html.url;
+
+        if (/\\.m3u8/.test(url)) {
+            input = {
+                jx: 0,
+                url: url,
+                parse: 0
+            }
+        } else if (/ffm3u8/.test(url)) {
+            let play_Url = /ffm3u8/.test(url) ? 'https://jx.lasi.fun/blue/index.php?url=';
+            input = {
+                jx: 0,
+                url: url,
+                playUrl: play_Url,
+                parse: 1,
+                header: JSON.stringify({
+                    'user-agent': 'Mozilla/5.0',
+                }),
+            }
+        } else {
+            input
+        }
+    `,
     multi: 1,
     timeout: 5000,
     limit: 6,
