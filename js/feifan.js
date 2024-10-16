@@ -9,7 +9,7 @@ var rule = {
     filterable: 1,
     tab_remove:['feifan'],
     play_parse: false ,
-    //parse: 'https://jx.lasi.fun/blue/index.php?url=',
+    parse: 'https://jx.lasi.fun/blue/index.php?url=',
     lazy:`js:
         var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
         var url = html.url;
