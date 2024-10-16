@@ -10,24 +10,7 @@ var rule = {
     tab_remove:['feifan'],
     play_parse: false ,
     parse: 'https://jx.lasi.fun/blue/index.php?url=',
-    lazy: `js:
-		var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
-		var url = html.url;
-		if (html.encrypt == '1') {
-			url = unescape(url)
-		} else if (html.encrypt == '2') {
-			url = unescape(base64Decode(url))
-		}
-		if (/\\.m3u8/.test(url)) {
-			input = {
-				jx: 0,
-				url: url,
-				parse: 'https://jx.lasi.fun/blue/index.php?url=',
-			}
-		} else {
-			input
-		}
-	`,
+    azy:'js:input={parse: 1, playUrl: "", jx: 1, url: input.split("?")[0]}',
     multi: 1,
     timeout: 5000,
     limit: 6,
