@@ -9,7 +9,7 @@ var rule = {
     filterable: 1,
     tab_remove:['liangzi'],
     play_parse: false,
-    lazy:'js:input="https://cache.json.icu/home/api?type=ys&uid=292796&key=fnoryABDEFJNPQV269&url="+input.split("?")[0];log(input);let html=JSON.parse(request(input));log(html);input=html.url||input',
+    lazy: ``,
     multi: 1,
     timeout: 5000,
     limit: 6,
