@@ -24,24 +24,56 @@ var rule = {
 		4:{cateId:'4'}
 	},
 	searchUrl: '/search/**----------fypage---.html',
-	parse: 'https://jx.lasi.fun/blue/index.php?url=',
-       lazy: $js.toString(() => {
-        let jxUrl = 'https://jx.lasi.fun/blue/index.php?url=;
-fetch_params.headers.Referer = 'https://www.567dyy.com';
-// fetch_params.headers['User-Agent'] = 'Mozilla/5.0 (Linux; Android 6.0.1; OPPO R9s Plus Build/MMB29M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/55.0.2883.91 Mobile Safari/537.36';
-fetch_params.headers['User-Agent'] = MOBILE_UA;
-try {
-    let html = request(jxUrl+input);
-    log(html);
-    realUrl=html.match(/source src="(.*?)"/)[1];
-    log('解析到真实播放地址:'+realUrl);
-}catch (e) {
-    log('解析发生错误:'+e.message);
-    realUrl = input;
-}
+	lazy:'js: var flag = [];
+function lazy() {
+    let jxUrl = 'https://jx.xmflv.com/?url=';
+    fetch_params.headers.Referer = jxUrl;
+    eval(getCryptoJS());
 
-return realUrl
-    }),
+    function encrypt(_0x5cf953) {
+        var _0x5efb07 = CryptoJS.enc.Utf8.parse(vkey);
+        var _0x45c0ea = CryptoJS.enc.Utf8.parse('ash3omcjsoajh1ur');
+        var _0x268682 = CryptoJS.AES.encrypt(_0x5cf953, _0x5efb07, {
+            'iv': _0x45c0ea,
+            'mode': CryptoJS.mode.CBC,
+            'padding': CryptoJS.pad.ZeroPadding
+        });
+        return _0x268682.toString();
+    }
+
+    function jsdecrypt(_0x1a43fe) {
+        var _0x10ab4d = CryptoJS.enc.Utf8.parse(vkey);
+        var _0x291247 = CryptoJS.enc.Utf8.parse('contentDocuments');
+        var _0x5abb12 = CryptoJS.AES.decrypt(_0x1a43fe, _0x10ab4d, {
+            'iv': _0x291247,
+            'mode': CryptoJS.mode.CBC,
+            'padding': CryptoJS.pad.ZeroPadding
+        }).toString(CryptoJS.enc.Utf8);
+        return _0x5abb12.toString();
+    }
+
+    try {
+        let html = request(jxUrl + input);
+        let time = html.match(/var time = '(.*?)'/)[1];
+        let ua = html.match(/var ua = '(.*?)'/)[1];
+        let vkey = html.match(/var vkey = '(.*?)'/)[1];
+// log(encrypt(vkey));
+        let phtml = request("https://jx.xmflv.com/favicon.ico", {
+            headers: {
+                "origin": "https://jx.xmflv.com"
+            },
+            body: "url=" + input + "&time=" + time + "&ua=" + ua + "&vkey=" + encrypt(vkey),
+            method: "post"
+        });
+// log(phtml);
+        realUrl = jsdecrypt(JSON.parse(phtml).url);
+        log('解析到真实播放地址:' + realUrl);
+    } catch (e) {
+        log('解析发生错误:' + e.message);
+        realUrl = input;
+    }
+    return realUrl
+}',
    
 	搜索: muban.首图2.搜索2,
 }
