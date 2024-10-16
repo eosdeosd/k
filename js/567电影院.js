@@ -24,50 +24,24 @@ var rule = {
 		4:{cateId:'4'}
 	},
 	searchUrl: '/search/**----------fypage---.html',
-
-   parse: 'https://jx.lasi.fun/blue/index.php?url=',
-    //lazy: $js.toString(() => {
-        let html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1])
-	    let url = html.url
-	    let from = html.from
-	    if (html.encrypt == '1') {
-		    url = unescape(url);
-	    } else if (html.encrypt == '2') {
-		    url = unescape(base64Decode(url));
-	    }
-        log('切片地址:' + url);
-        
-        if (url.includes('.m3u8')){
-            input = url;
-        }else if(from=='blue'){
-            let html=request(rule.parse+url,{
-                headers:{
-                    'Referer':'https://www.567dyy.com/',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
-                   
-                },
-                redirect: false,
-                withHeaders: true})
-            log(html)
-            let parseurl=JSON.parse(html).location;
-            log(parseurl)
-            let play=JSON.parse(request(parseurl.split('?url=')[1],{
-                headers:{
-                    'Origin': 'https://jx.lasi.fun',
-                    'Host': 'cdn.yangtuyun.cn',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
-                },
-                redirect: false,
-                withHeaders: true})).location+'#.m3u8';
-            //let playurl=fetch(play,{headers:{'Host': 'download4.caiyun.feixin.10086.cn'}})
-            log(play)
-            input=play
-
-        }else{
-            input
-        }
-    }),
-    //lazy:"js:var html=JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);log(html);var url=html.url;if(html.encrypt=='1'){url=unescape(url)}else if(html.encrypt=='2'){url=unescape(base64Decode(url))}if(/m3u8|mp4/.test(url)){input=url}else{input}",
-
+	parse: 'https://jx.lasi.fun/blue/index.php?url=',
+       lazy: `js:
+		var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
+		var url = html.url;
+		if (html.encrypt == '1') {
+			url = unescape(url)
+		} else if (html.encrypt == '2') {
+			url = unescape(base64Decode(url))
+		}
+		if (/\\.m3u8|\\.mp4/.test(url)) {
+			input = {
+				jx: 0,
+				url: url,
+				parse: 0
+			}
+		} else {
+			input
+		}
+	`,
 	搜索: muban.首图2.搜索2,
 }
