@@ -24,48 +24,20 @@ var rule = {
 		4:{cateId:'4'}
 	},
 	searchUrl: '/search/**----------fypage---.html',
-	parse: 'https://jx.lasi.fun/blue/index.php?url=',
-    lazy: `js:
-		var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]); 1])
-	    var url = html.url
-	    var from = html.from
+
+parse: 'https://jx.lasi.fun/blue/index.php?url=',
+    lazy: $js.toString(() => {
+        let html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1])
+	    let url = html.url
+	    let from = html.from
 	    if (html.encrypt == '1') {
 		    url = unescape(url);
 	    } else if (html.encrypt == '2') {
 		    url = unescape(base64Decode(url));
 	    }
         log('切片地址:' + url);
-        
-        if (url.includes('.m3u8')){
-            input = url;
-        }else if(from=='blue'){
-            var html=request(rule.parse+url,{
-                headers:{
-                    'Referer':'https://www.567dyy.com/',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
-                   
-                },
-                redirect: false,
-                withHeaders: true})
-            log(html)
-            var parseurl=JSON.parse(html).location;
-            log(parseurl)
-            var play=JSON.parse(request(parseurl.split('?url=')[1],{
-                headers:{
-                    'Origin': 'https://jx.lasi.fun',
-                    'Host': 'cdn.yangtuyun.cn',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
-                },
-                redirect: false,
-                withHeaders: true})).location+'#.m3u8';
+    }),
+    //lazy:"js:var html=JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);log(html);var url=html.url;if(html.encrypt=='1'){url=unescape(url)}else if(html.encrypt=='2'){url=unescape(base64Decode(url))}if(/m3u8|mp4/.test(url)){input=url}else{input}",
 
-            log(play)
-            input=play
-
-        }else{
-            input
-        }
-    }
- ",
 	搜索: muban.首图2.搜索2,
 }
