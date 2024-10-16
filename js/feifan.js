@@ -10,7 +10,7 @@ var rule = {
     tab_remove:['feifan'],
     play_parse: false ,
     parse: 'https://jx.lasi.fun/blue/index.php?url=',
-    lazy:'js:input={parse:'https://jx.lasi.fun/blue/index.php?url=',jx:1,url:input};',
+ // lazy:'js:input={parse:'https://jx.lasi.fun/blue/index.php?url=',jx:1,url:input};',
     multi: 1,
     timeout: 5000,
     limit: 6,
