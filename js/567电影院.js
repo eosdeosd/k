@@ -26,7 +26,7 @@ var rule = {
 	searchUrl: '/search/**----------fypage---.html',
 
    parse: 'https://jx.lasi.fun/blue/index.php?url=',
-    lazy: $js.toString(() => {
+    //lazy: $js.toString(() => {
         let html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1])
 	    let url = html.url
 	    let from = html.from
