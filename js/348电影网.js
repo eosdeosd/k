@@ -20,28 +20,11 @@ var rule = {
 	},
 	class_parse: '.nav-channel a;a&&Text;a&&href;/(\\d+).html',
 	play_parse: true,
-	lazy: `js:
-		var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
-		var url = html.url;
-		if (html.encrypt == '1') {
-			url = unescape(url)
-		} else if (html.encrypt == '2') {
-			url = unescape(base64Decode(url))
-		}
-		if (/\\.m3u8|\\.mp4/.test(url)) {
-			input = {
-				jx: 0,
-				url: url,
-				parse: 0
-			}
-		} else {
-			input = {
-                jx: 0,
-                url: 'https://101.126.17.154/?url='+url,
-                parse: 1
-            }
-        }
-	`,
+    lazy:'js:input=input.split("?")[0];log(input);',
+    // 疑似t4专用的
+    // lazy:'js:input={parse: 1, playUrl: "", jx: 1, url: input.split("?")[0]}',
+    // 手动调用解析请求json的url,此lazy不方便
+    // lazy:'js:input="https://cache.json.icu/home/api?type=ys&uid=292796&key=fnoryABDEFJNPQV269&url="+input.split("?")[0];log(input);let html=JSON.parse(request(input));log(html);input=html.url||input',
 	limit: 6,
 	double: true, // 推荐内容是否双层定位
 	推荐: '.vodlist;*;*;*;*;*',
