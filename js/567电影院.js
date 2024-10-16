@@ -24,20 +24,23 @@ var rule = {
 		4:{cateId:'4'}
 	},
 	searchUrl: '/search/**----------fypage---.html',
-
-parse: 'https://jx.lasi.fun/blue/index.php?url=',
-    //lazy: $js.toString(() => {
-        let html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1])
-	    let url = html.url
-	    let from = html.from
-	    if (html.encrypt == '1') {
-		    url = unescape(url);
-	    } else if (html.encrypt == '2') {
-		    url = unescape(base64Decode(url));
-	    }
-        log('切片地址:' + url);
-    }),
-    //lazy:"js:var html=JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);log(html);var url=html.url;if(html.encrypt=='1'){url=unescape(url)}else if(html.encrypt=='2'){url=unescape(base64Decode(url))}if(/m3u8|mp4/.test(url)){input=url}else{input}",
-
+	lazy: `js:
+		var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
+		var url = html.url;
+		if (html.encrypt == '1') {
+			url = unescape(url)
+		} else if (html.encrypt == '2') {
+			url = unescape(base64Decode(url))
+		}
+		if (/\\.m3u8|\\.mp4/.test(url)) {
+			input = {
+				jx: 0,
+				url: url,
+				parse: 0
+			}
+		} else {
+			input
+		}
+	`,
 	搜索: muban.首图2.搜索2,
 }
