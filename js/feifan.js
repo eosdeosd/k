@@ -8,8 +8,26 @@ var rule = {
     quickSearch: 0,
     filterable: 1,
     tab_remove:['feifan'],
-    play_parse: false,
-    lazy: '',
+    play_parse: false ,
+    parse: 'https://jx.lasi.fun/blue/index.php?url=',
+    lazy:`js:
+        var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
+        var url = html.url;
+        if (html.encrypt == '1') {
+            url = unescape(url)
+        } else if (html.encrypt == '2') {
+            url = unescape(base64Decode(url))
+        }
+        if (/m3u8|mp4/.test(url)) {
+            input = url
+        } else {
+            input = {
+                jx: 0,
+                url: 'https://jx.lasi.fun/blue/index.php?url'+url,
+                parse: 1
+            }
+        }
+    `,
     multi: 1,
     timeout: 5000,
     limit: 6,
