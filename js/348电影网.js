@@ -35,8 +35,12 @@ var rule = {
 				parse: 0
 			}
 		} else {
-			input
-		}
+			input = {
+                jx: 0,
+                url: 'https://101.126.17.154/?url='+url,
+                parse: 1
+            }
+        }
 	`,
 	limit: 6,
 	double: true, // 推荐内容是否双层定位
