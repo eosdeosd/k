@@ -8,7 +8,7 @@ var rule = {
     quickSearch: 0,
     filterable: 1,
    // tab_remove:['liangzi'],
-    play_parse: false ,
+    play_parse: true ,
     lazy: `js:
 		var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
 		var url = html.url;
@@ -17,10 +17,12 @@ var rule = {
 		} else if (html.encrypt == '2') {
 			url = unescape(base64Decode(url))
 		}
-		if (/\\.m3u8/.test(url)) {
-			input = url
-		} else {
-			input = {url: 'https://101.126.17.154/?url='+url
+		if (/\\.m3u8|\\.mp4/.test(url)) {
+			input = {
+				jx: 0,
+				url: url,
+				parse: 0
+			}
 		} else {
 			input
 		}
