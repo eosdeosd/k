@@ -17,6 +17,15 @@ var rule = {
                 jx: 0,
                 url: 'https://101.126.17.154/?url='+url,
                 parse: 1
+            } else {
+            input= JSON.parse(request(input).match(/r https.*?m3u8)[1])
+        } else {
+            input= url
+        } else {
+            input = {
+                jx: 0,
+                url: 0,
+                parse: 0,
             }
         }
     `,
