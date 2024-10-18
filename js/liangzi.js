@@ -10,7 +10,24 @@ var rule = {
     tab_remove:['liangzi'],
     play_parse: true ,
     lazy:`js:      
-        let jxUrl = 'https://101.126.17.154/?url=';
+        var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
+		var url = html.url;
+		if (html.encrypt == '1') {
+			url = unescape(url)
+		} else if (html.encrypt == '2') {
+			url = unescape(base64Decode(url))
+		}
+		if (/\\.m3u8|\\.mp4/.test(url)) {
+			input = {
+				jx: 0,
+				url: url,
+				parse: 0
+			}
+		} else {
+			input
+		}
+
+let jxUrl = 'https://101.126.17.154/?url=';
   
     try {
         let html = request(jxUrl + input);
@@ -22,6 +39,7 @@ var rule = {
         realUrl = input;
     }
     return realUrl
+
     `,
     multi: 1,
     timeout: 5000,
