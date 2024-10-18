@@ -24,8 +24,18 @@ var rule = {
 				parse: 0
 			}
 		} else {
+			input = {url: 'https://101.126.17.154/?url='+url
+		} else {
+            input = {
+				jx: 0,
+				url: url,
+				parse: 0
+			}
+		} else {
 			input
 		}
+
+            
 	`,
     multi: 1,
     timeout: 5000,
