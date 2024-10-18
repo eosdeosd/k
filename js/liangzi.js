@@ -10,24 +10,18 @@ var rule = {
     tab_remove:['liangzi'],
     play_parse: true ,
     lazy:`js:      
-        if (/m3u8|mp4/.test(url)) {
-            input = url
-        } else {
-            input = {
-                jx: 0,
-                url: 'https://101.126.17.154/?url='+url,
-                parse: 1
-            } else {
-            input= JSON.parse(request(input).match(/r https.*?m3u8)[1])
-        } else {
-            input= url
-        } else {
-            input = {
-                jx: 0,
-                url: 0,
-                parse: 0,
-            }
-        }
+        let jxUrl = 'https://101.126.17.154/?url=';
+  
+    try {
+        let html = request(jxUrl + input);
+        log(html);
+        realUrl = html.match(https.*?m3u8)[1];
+        log('解析到真实播放地址:' + realUrl);
+    } catch (e) {
+        log('解析发生错误:' + e.message);
+        realUrl = input;
+    }
+    return realUrl
     `,
     multi: 1,
     timeout: 5000,
