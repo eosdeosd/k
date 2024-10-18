@@ -18,7 +18,7 @@ var rule = {
                 if (jData.code == 1) {
                     return jData.data.url
                 } else {
-                    return 'http://43.154.104.152:1234/jhapi/cs.php?url=' + url.split('=')[1]
+                    return 'https://101.126.17.154/?url=' + url.split('=')[1]
                 }
             }
             if (/,/.test(input)) {
@@ -34,7 +34,7 @@ var rule = {
                 }
             } else {
                 let videoUrl = getvideo(input);
-                if (/jhapi/.test(videoUrl)) {
+                if (/https/.test(videoUrl)) {
                     videoUrl = getvideo(videoUrl);
                     input = {
                         jx: 0,
