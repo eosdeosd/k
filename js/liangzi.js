@@ -24,10 +24,7 @@ var rule = {
 				parse: 0
 			}
 		} else {
-			input
-		}
-
-let jxUrl = 'https://101.126.17.154/?url=';
+			let jxUrl = 'https://101.126.17.154/?url=';
   
     try {
         let html = request(jxUrl + input);
@@ -39,6 +36,7 @@ let jxUrl = 'https://101.126.17.154/?url=';
         realUrl = input;
     }
     return realUrl
+		}
 
     `,
     multi: 1,
