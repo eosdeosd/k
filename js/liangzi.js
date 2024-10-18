@@ -18,13 +18,9 @@ var rule = {
 			url = unescape(base64Decode(url))
 		}
 		if (/\\.m3u8|\\.mp4/.test(url)) {
-			input = {
-				jx: 0,
-				url: url,
-				parse: 0
-			}
+			input = url
 		} else {
-			input = {url: 'https://101.126.17.154/?url='+url,
+			input = {url: 'https://101.126.17.154/?url='+url
 		} else {
 			input
 		}
