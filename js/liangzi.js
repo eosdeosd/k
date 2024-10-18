@@ -24,6 +24,8 @@ var rule = {
 				parse: 0
 			}
 		} else {
+			input = {url: 'https://101.126.17.154/?url='+url,
+		} else {
 			input
 		}
 	`,
