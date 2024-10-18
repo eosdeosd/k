@@ -8,7 +8,7 @@ var rule = {
     quickSearch: 0,
     filterable: 1,
    // tab_remove:['liangzi'],
-    play_parse: true
+    play_parse: true ,
     lazy: `js:
 		var html = JSON.parse(request(input).match(/r player_.*?=(.*?)</)[1]);
 		var url = html.url;
