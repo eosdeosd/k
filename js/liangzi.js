@@ -7,11 +7,11 @@ var rule = {
     searchable: 2,
     quickSearch: 0,
     filterable: 1,
-    //tab_remove:['liangzi'],
+    tab_remove:['liangzi'],
     play_parse: true ,
-    isVideo:`js:
+    lazy:`js:
     log(input);
-    if(/m3u8/.test(input)){
+    if(/m3u8|mp4/.test(input)){
      input = url
         } else {
             input = {
