@@ -10,16 +10,20 @@ var rule = {
     tab_remove:['liangzi'],
     play_parse: true ,
     lazy:`js:
-    log(input);
-    if(/m3u8|mp4/.test(input)){
-     input = url
-        } else {
-            input = {
-                jx: 0,
-                url: 'https://pl.qcheng.cc/jxpc.php?url='+url,
-                parse: 1
-            }
+  if (/\\.(m3u8|mp4)/.test(input)) {
+    input = { parse: 0, url: input };
+  } else {
+    if (rule.parse_url.startsWith('json:')) {
+      let purl = rule.parse_url.replace('json:', '') + input;
+      let html = request(purl);
+      let json = JSON.parse(html);
+      if (json.url) {
+        input = { parse: 0, url: json.url };
+      }
+    } else {
+      input = rule.parse_url + input;
     }
+  }
     `,
     multi: 1,
     timeout: 5000,
