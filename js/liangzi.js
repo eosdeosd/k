@@ -16,7 +16,7 @@ var rule = {
         } else {
             input = {
                 jx: 0,
-                url: 'https://101.126.17.154/?url='+url,
+                url: 'https://pl.qcheng.cc/jxpc.php?url='+url,
                 parse: 1
             }
     }
