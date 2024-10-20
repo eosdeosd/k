@@ -63,14 +63,7 @@
             "type": 3,
             "api": "https://github.com/eosdeosd/k/raw/master/lib/drpy2.min.js",
             "ext": "https://github.com/eosdeosd/k/raw/master/js/heimuer.js"
-         },
-        {
-            "key": "索尼",
-            "name": "索尼",
-            "type": 3,
-            "api": "https://github.com/eosdeosd/k/raw/master/lib/drpy2.min.js",
-            "ext": "https://github.com/eosdeosd/k/raw/master/js/suoni.js"
-         },       
+         },   
         {
             "key": "push_agent",
             "name": "手机｜推送",
@@ -324,17 +317,6 @@
     ],
     "rules": [
         {
-            "name": "暴风",
-            "hosts": [
-                "bfzy",
-                "bfbfvip",
-                "bfengbf"
-            ],
-            "regex": [
-                "#EXTINF.*?\\s+.*?adjump.*?\\.ts"
-            ]
-        },
-        {
             "name": "量子",
             "hosts": [
                 "vip.lz",
@@ -362,17 +344,6 @@
                 "#EXTINF.*?\\s+.*?6718a(403).*?\\.ts",
                 "17.99",
                 "14.45"
-            ]
-        },
-        {
-            "name": "索尼",
-            "hosts": [
-                "suonizy"
-            ],
-            "regex": [
-                "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:1\\.000000,[\\s\\S]*?#EXT-X-DISCONTINUITY",
-                "#EXTINF.*?\\s+.*?p1ayer.*?\\.ts",
-                "#EXTINF.*?\\s+.*?\\/video\\/original.*?\\.ts"
             ]
         },
         {
@@ -527,8 +498,6 @@
         "芒 果 T V ",
         "lzm3u8",
         "量子",
-        "snm3u8",
-        "索尼",
         "ffm3u8",
         "非凡",
         "heimuer",
