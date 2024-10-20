@@ -8,12 +8,8 @@ var rule = {
     quickSearch: 0,
     filterable: 1,
     tab_remove:['feifan'],
-    play_parse:true,
-    lazy:'js:input=input.split("?")[0];log(input);',
-    // 疑似t4专用的
-    // lazy:'js:input={parse: 1, playUrl: "", jx: 1, url: input.split("?")[0]}',
-    // 手动调用解析请求json的url,此lazy不方便
-    // lazy:'js:input="https://cache.json.icu/home/api?type=ys&uid=292796&key=fnoryABDEFJNPQV269&url="+input.split("?")[0];log(input);let html=JSON.parse(request(input));log(html);input=html.url||input',
+    play_parse: false,
+    lazy: '',
     multi: 1,
     timeout: 5000,
     limit: 6,

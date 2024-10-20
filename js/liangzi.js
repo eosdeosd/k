@@ -1,12 +1,6 @@
 var rule = {
     title: '量子',
-    host: 'https://lzizy.com',
-    homeUrl: '/api.php/provide/vod?ac=detail',
-    searchUrl: '/api.php/provide/vod?ac=detail&wd=**&pg=fypage',
-    detailUrl: '/api.php/provide/vod?ac=detail&ids=fyid', //非必填,二级详情拼接链接',
-    homeUrl: '/api.php/provide/vod?ac=detail',
-    searchUrl: '/api.php/provide/vod?ac=detail&wd=**&pg=fypage',
-    detailUrl: '/api.php/provide/vod?ac=detail&ids=fyid', //非必填,二级详情拼接链接',
+    host: 'https://cj.lzcaiji.com',
     homeUrl: '/api.php/provide/vod?ac=detail',
     searchUrl: '/api.php/provide/vod?ac=detail&wd=**&pg=fypage',
     detailUrl: '/api.php/provide/vod?ac=detail&ids=fyid', //非必填,二级详情拼接链接
@@ -14,45 +8,8 @@ var rule = {
     quickSearch: 0,
     filterable: 1,
     tab_remove:['liangzi'],
-    play_parse: true ,
-    lazy: `js:
-        let play_Url = '';
-        if (/\\.m3u8|\\.mp4/.test(input)) {
-            input = {
-                jx: 0,
-                url: input,
-                parse: 0
-            }
-        } else if (/,/.test(input) && /url=/.test(input)) {
-            input = input.split('url=');
-            play_Url = input[0].split(',')[0];
-            input = {
-                jx: 0,
-                url: input[1],
-                playUrl: play_Url,
-                parse: 1
-            }
-        } else if (/url=|id=/.test(input)) {
-            input = {
-                jx: 0,
-                url: JSON.parse(request(input)).url,
-                parse: 0
-            }
-        } else if (/youku|iqiyi|v\\.qq\\.com|pptv|sohu|le\\.com|v\\.cdnlz3\\.com|mgtv|bilibili|ixigua/.test(input)) {
-			play_Url = /v\\.cdnlz3\\.com/.test(input) ? 'https://101.126.17.154/?url='; 
-			input = {
-				jx: 0,
-				url: input,
-				playUrl: play_Url,
-				parse: 1,
-				header: JSON.stringify({
-					'user-agent': 'Mozilla/5.0',
-				}),
-			}
-        } else {
-            input
-        }
-    `,
+    play_parse: false,
+    lazy: ``,
     multi: 1,
     timeout: 5000,
     limit: 6,
