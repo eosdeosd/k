@@ -67,10 +67,23 @@
         {
             "key": "黑木耳",
             "name": "黑木耳",
-            "type": 3,
-            "api": "https://github.com/eosdeosd/k/raw/master/lib/drpy2.min.js",
-            "ext": "https://github.com/eosdeosd/k/raw/master/js/heimuer.js"
-         },
+            "type": 1,
+            "api": "https://xml.heimuer.xyz/api.php/provide/vod/",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "categories": [
+                "国产剧",
+                "港剧",
+                "台剧",
+                "日剧",
+                "韩剧",
+                "动作片",
+                "喜剧片",
+                "科幻片"
+            ]
+        },
         {
             "key": "暴風",
             "name": "暴風",
