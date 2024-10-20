@@ -51,8 +51,8 @@
             "ext": "https://github.com/eosdeosd/k/raw/master/js/360.js"
         },
         {
-            "key": "量子",
-            "name": "量子",
+            "key": "量子1",
+            "name": "量子1",
             "type": 3,
             "api": "https://github.com/eosdeosd/k/raw/master/lib/drpy2.min.js",
             "ext": "https://github.com/eosdeosd/k/raw/master/js/liangzi.js"
@@ -234,7 +234,7 @@
                     "youku",
                     "优酷",
                     "lzm3u8",
-                    "cdnlz3",
+                    "ffm3u8",
                     "letv",
                     "乐视",
                     "mgtv",
@@ -242,7 +242,7 @@
                     "tnmb",
                     "seven",
                     "bilibili",
-                    "量子"
+                    "hmrvideo"
                 ],
                 "header": {
                     "User-Agent": "okhttp/4.9.1"
@@ -263,7 +263,7 @@
                     "youku",
                     "优酷",
                     "lzm3u8",
-                    "cdnlz3",
+                    "ffm3u8",
                     "letv",
                     "乐视",
                     "mgtv",
@@ -271,7 +271,7 @@
                     "tnmb",
                     "seven",
                     "bilibili",
-                    "量子"
+                    "hmrvideo"
                 ],
                 "header": {
                     "User-Agent": "okhttp/4.9.1"
@@ -292,7 +292,7 @@
                     "youku",
                     "优酷",
                     "lzm3u8",
-                    "cdnlz3",
+                    "ffm3u8",
                     "letv",
                     "乐视",
                     "mgtv",
@@ -300,7 +300,7 @@
                     "tnmb",
                     "seven",
                     "bilibili",
-                    "量子"
+                    "hmrvideo"
                 ],
                 "header": {
                     "User-Agent": "okhttp/4.9.1"
@@ -321,7 +321,7 @@
                     "youku",
                     "优酷",
                     "lzm3u8",
-                    "cdnlz3",
+                    "ffm3u8",
                     "letv",
                     "乐视",
                     "mgtv",
@@ -329,7 +329,7 @@
                     "tnmb",
                     "seven",
                     "bilibili",
-                    "量子"
+                    "hmrvideo"
                 ],
                 "header": {
                     "User-Agent": "okhttp/4.9.1"
@@ -380,7 +380,7 @@
             ]
         },
         {
-            "name": "量子",
+            "name": "量子1",
             "hosts": [
                 "vip.lz",
                 "hd.lz",
@@ -553,16 +553,16 @@
         "奇艺",
         "爱奇艺",
         "爱 奇 艺",
-        "量子",
+        "hmrvideo",
         "xigua",
         "letv",
         "leshi",
         "乐视",
         "乐 视",
         "lzm3u8",
-        "cdnlz3",
+        "ffm3u8",
         "搜 狐",
-        "cdnlz3视频",
+        "ffm3u8视频",
         "tudou",
         "pptv",
         "mgtv",
