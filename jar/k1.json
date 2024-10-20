@@ -233,8 +233,8 @@
                     "奇艺",
                     "youku",
                     "优酷",
-                    "sohu",
-                    "搜狐",
+                    "lzm3u8",
+                    "cdnlz3",
                     "letv",
                     "乐视",
                     "mgtv",
@@ -242,7 +242,7 @@
                     "tnmb",
                     "seven",
                     "bilibili",
-                    "1905"
+                    "量子"
                 ],
                 "header": {
                     "User-Agent": "okhttp/4.9.1"
@@ -262,8 +262,8 @@
                     "奇艺",
                     "youku",
                     "优酷",
-                    "sohu",
-                    "搜狐",
+                    "lzm3u8",
+                    "cdnlz3",
                     "letv",
                     "乐视",
                     "mgtv",
@@ -271,7 +271,7 @@
                     "tnmb",
                     "seven",
                     "bilibili",
-                    "1905"
+                    "量子"
                 ],
                 "header": {
                     "User-Agent": "okhttp/4.9.1"
@@ -291,8 +291,8 @@
                     "奇艺",
                     "youku",
                     "优酷",
-                    "sohu",
-                    "搜狐",
+                    "lzm3u8",
+                    "cdnlz3",
                     "letv",
                     "乐视",
                     "mgtv",
@@ -300,7 +300,7 @@
                     "tnmb",
                     "seven",
                     "bilibili",
-                    "1905"
+                    "量子"
                 ],
                 "header": {
                     "User-Agent": "okhttp/4.9.1"
@@ -320,8 +320,8 @@
                     "奇艺",
                     "youku",
                     "优酷",
-                    "sohu",
-                    "搜狐",
+                    "lzm3u8",
+                    "cdnlz3",
                     "letv",
                     "乐视",
                     "mgtv",
@@ -329,7 +329,7 @@
                     "tnmb",
                     "seven",
                     "bilibili",
-                    "1905"
+                    "量子"
                 ],
                 "header": {
                     "User-Agent": "okhttp/4.9.1"
@@ -553,16 +553,16 @@
         "奇艺",
         "爱奇艺",
         "爱 奇 艺",
-        "m1905",
+        "量子",
         "xigua",
         "letv",
         "leshi",
         "乐视",
         "乐 视",
-        "sohu",
-        "搜狐",
+        "lzm3u8",
+        "cdnlz3",
         "搜 狐",
-        "搜狐视频",
+        "cdnlz3视频",
         "tudou",
         "pptv",
         "mgtv",
