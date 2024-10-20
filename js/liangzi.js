@@ -9,21 +9,35 @@ var rule = {
     filterable: 1,
     tab_remove:['liangzi'],
     play_parse: true ,
-    lazy:`js:
-  if (/\\.(m3u8|mp4)/.test(input)) {
-    input = { parse: 0, url: input };
-  } else {
-    if (rule.parse_url.startsWith('json:')) {
-      let purl = rule.parse_url.replace('json:', '') + input;
-      let html = request(purl);
-      let json = JSON.parse(html);
-      if (json.url) {
-        input = { parse: 0, url: json.url };
-      }
-    } else {
-      input = rule.parse_url + input;
-    }
-  }
+    lazy: `js:			
+        if (/\\.m3u8|\\.mp4/.test(input)) {
+            input = {
+                jx: 0,
+                url: input,
+                parse: 0
+            }
+		} else if (/,/.test(input) && /url=/.test(input))	
+            input = {
+                jx: 0,
+                url: input.split(',')[1],
+                parse: 1	
+            }	
+		} else if (/url=|id=/.test(input)) {
+            input = {
+                jx: 0,
+                url: JSON.parse(request(input)).url,
+                parse: 0
+            }
+        } else if (/https.*?m3u8/.test(input)) {
+            let purl = JSON.parse(request("https://101.126.17.154/?url=" + input)).url;
+            input = {
+                jx: 0,
+                url: purl,
+                parse: 0
+            }
+        } else {
+            input
+        }
     `,
     multi: 1,
     timeout: 5000,
