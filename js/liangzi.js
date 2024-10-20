@@ -38,8 +38,8 @@ var rule = {
                 url: JSON.parse(request(input)).url,
                 parse: 0
             }
-        } else if (/youku|iqiyi|v\\.qq\\.com|pptv|sohu|le\\.com|lzizy\\.com|mgtv|bilibili|ixigua/.test(input)) {
-			play_Url = /lzizy\\.com/.test(input) ? 'https://101.126.17.154/?url='; 
+        } else if (/youku|iqiyi|v\\.qq\\.com|pptv|sohu|le\\.com|v\\.cdnlz3\\.com|mgtv|bilibili|ixigua/.test(input)) {
+			play_Url = /v\\.cdnlz3\\.com/.test(input) ? 'https://101.126.17.154/?url='; 
 			input = {
 				jx: 0,
 				url: input,
