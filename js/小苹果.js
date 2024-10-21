@@ -21,8 +21,8 @@ var rule = {
     class_url: '1&2&3&4',
     proxy_rule: $js.toString(() => {      
         let data=fetch(input.url,{headers:rule.headers})       
-        // let m3u8=data.replace('URI="','URI="http://194.147.100.39')
-        let m3u8=data.replace('URI="',`URI="${rule.host}`)        
+        let m3u8=data.replace('URI="','URI="http://194.147.100.39')
+        // let m3u8=data.replace('URI="',`URI="${rule.host}`)        
         input = [200, 'application/vnd.apple.mpegurl', m3u8]
     }),
     play_parse: true,   
