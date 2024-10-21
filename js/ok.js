@@ -6,17 +6,9 @@ var rule = {
     detailUrl: '/api.php/provide/vod?ac=detail&ids=fyid', //非必填,二级详情拼接链接
     searchable: 2,
     quickSearch: 0,
-    filterable: 1,
-    //tab_remove:['liangzi'],
+    filterable: 1,   
     play_parse: true,   
-    //lazy: `js:
-	 let url = JSON.parse(fetch('https://101.126.17.154/?url='+input)).url
-        input = {
-            url: url,
-            parse: 0,
-            header: rule.headers                
-        }
-	`,
+    lazy: ``,
     multi: 1,
     timeout: 5000,
     limit: 6,
