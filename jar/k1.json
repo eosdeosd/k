@@ -65,13 +65,6 @@
             "ext": "https://github.com/eosdeosd/k/raw/master/js/heimuer.js"
          },   
         {
-            "key": "ok",
-            "name": "ok",
-            "type": 3,
-            "api": "https://github.com/eosdeosd/k/raw/master/lib/drpy2.min.js",
-            "ext": "https://github.com/eosdeosd/k/raw/master/js/ok.js"
-         },
-        {
             "key": "push_agent",
             "name": "手机｜推送",
             "type": 3,
