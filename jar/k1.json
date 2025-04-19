@@ -113,7 +113,7 @@
         {
             "name": "推荐2",
             "type": 1,
-            "url": "http://139.224.73.238:16555/neibu.php?url=",
+            "url": "http://pan.qiaoji8.com/tvbox/neibu.php?url=",
             "ext": {
                 "flag": [
                     "qq",
@@ -239,7 +239,7 @@
         {
             "name": "-咸鱼-",
             "type": 1,
-            "url": "http://139.224.73.238:16555/api/?key=BCAgpjHUEz6doVpv86&url=",
+            "url": "http://pan.qiaoji8.com/tvbox/gouzi.php?url=",
             "ext": {
                 "flag": [
                     "qq",
